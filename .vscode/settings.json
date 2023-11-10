@@ -43,5 +43,5 @@
     "editor.formatOnType": true,
   },
   "git.allowForcePush": true,
-  "java.jdt.ls.vmargs": "-Xmx1500m -Xms200m -Xlog:disable"
+  "java.jdt.ls.vmargs": "-Xmx3000m -Xms200m -Xlog:disable"
 }
