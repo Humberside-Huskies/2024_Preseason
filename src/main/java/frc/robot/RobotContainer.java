@@ -9,9 +9,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.AutoConstants.AutoPattern;
 import frc.robot.Constants.DriveConstants.DriveMode;
+import frc.robot.commands.arm.DefaultArmCommand;
 import frc.robot.commands.auto.AutonomousCommand;
 import frc.robot.commands.drive.DefaultDriveCommand;
 import frc.robot.operator.OperatorInput;
+import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 
 /**
@@ -28,6 +30,7 @@ public class RobotContainer {
 
     // The robot's subsystems and commands are defined here...
     private final DriveSubsystem               driveSubsystem     = new DriveSubsystem();
+    private final ArmSubsystem                 armSubsystem       = new ArmSubsystem();
 
     // All dashboard choosers are defined here...
     private final SendableChooser<DriveMode>   driveModeChooser   = new SendableChooser<>();
@@ -43,6 +46,11 @@ public class RobotContainer {
             new DefaultDriveCommand(
                 operatorInput.driverController, driveModeChooser,
                 driveSubsystem));
+
+        armSubsystem.setDefaultCommand(
+            new DefaultArmCommand(
+                operatorInput.driverController,
+                armSubsystem));
 
         // Initialize the dashboard choosers
         initDashboardChoosers();

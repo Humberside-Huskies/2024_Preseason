@@ -1,10 +1,6 @@
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-
+import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
@@ -12,16 +8,16 @@ import frc.robot.Constants.DriveConstants;
 public class DriveSubsystem extends SubsystemBase {
 
     // The motors on the left side of the drive.
-    private final TalonSRX  leftPrimaryMotor   = new TalonSRX(DriveConstants.LEFT_MOTOR_PORT);
-    private final VictorSPX leftFollowerMotor  = new VictorSPX(DriveConstants.LEFT_MOTOR_PORT + 1);
+    private final PWMSparkMax leftPrimaryMotor   = new PWMSparkMax(DriveConstants.LEFT_MOTOR_PORT);
+    private final PWMSparkMax leftFollowerMotor  = new PWMSparkMax(DriveConstants.LEFT_MOTOR_PORT + 1);
 
     // The motors on the right side of the drive.
-    private final VictorSPX rightPrimaryMotor  = new VictorSPX(DriveConstants.RIGHT_MOTOR_PORT);
-    private final VictorSPX rightFollowerMotor = new VictorSPX(DriveConstants.RIGHT_MOTOR_PORT + 1);
+    private final PWMSparkMax rightPrimaryMotor  = new PWMSparkMax(DriveConstants.RIGHT_MOTOR_PORT);
+    private final PWMSparkMax rightFollowerMotor = new PWMSparkMax(DriveConstants.RIGHT_MOTOR_PORT + 1);
 
     // Motor speeds
-    private double          leftSpeed          = 0;
-    private double          rightSpeed         = 0;
+    private double            leftSpeed          = 0;
+    private double            rightSpeed         = 0;
 
     /** Creates a new DriveSubsystem. */
     public DriveSubsystem() {
@@ -32,19 +28,19 @@ public class DriveSubsystem extends SubsystemBase {
         leftPrimaryMotor.setInverted(DriveConstants.LEFT_MOTOR_REVERSED);
         leftFollowerMotor.setInverted(DriveConstants.LEFT_MOTOR_REVERSED);
 
-        leftPrimaryMotor.setNeutralMode(NeutralMode.Brake);
-        leftFollowerMotor.setNeutralMode(NeutralMode.Brake);
+        // leftPrimaryMotor.setNeutralMode(NeutralMode.Brake);
+        // leftFollowerMotor.setNeutralMode(NeutralMode.Brake);
 
-        leftFollowerMotor.follow(leftPrimaryMotor);
+        // leftFollowerMotor.follow(leftPrimaryMotor);
 
 
         rightPrimaryMotor.setInverted(DriveConstants.RIGHT_MOTOR_REVERSED);
         rightFollowerMotor.setInverted(DriveConstants.RIGHT_MOTOR_REVERSED);
 
-        rightPrimaryMotor.setNeutralMode(NeutralMode.Brake);
-        rightFollowerMotor.setNeutralMode(NeutralMode.Brake);
+        // rightPrimaryMotor.setNeutralMode(NeutralMode.Brake);
+        // rightFollowerMotor.setNeutralMode(NeutralMode.Brake);
 
-        rightFollowerMotor.follow(rightPrimaryMotor);
+        // rightFollowerMotor.follow(rightPrimaryMotor);
 
     }
 
@@ -59,10 +55,12 @@ public class DriveSubsystem extends SubsystemBase {
         this.leftSpeed  = leftSpeed;
         this.rightSpeed = rightSpeed;
 
-        leftPrimaryMotor.set(ControlMode.PercentOutput, leftSpeed);
-        rightPrimaryMotor.set(ControlMode.PercentOutput, rightSpeed);
+        leftPrimaryMotor.set(leftSpeed);
+        rightPrimaryMotor.set(rightSpeed);
 
         // NOTE: The follower motors are set to follow the primary motors
+        leftFollowerMotor.set(leftSpeed);
+        rightFollowerMotor.set(rightSpeed);
     }
 
     /** Safely stop the subsystem from moving */
