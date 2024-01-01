@@ -1,5 +1,7 @@
 package frc.robot.commands.auto;
 
+import java.util.Optional;
+
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -14,7 +16,7 @@ public class AutonomousCommand extends SequentialCommandGroup {
 
     private final DriveSubsystem driveSubsystem;
 
-    private Alliance             alliance    = null;
+    private Optional<Alliance>   alliance    = null;
 
     public AutonomousCommand(DriveSubsystem driveSubsystem,
         SendableChooser<AutoPattern> autoPatternChooser) {
@@ -33,7 +35,7 @@ public class AutonomousCommand extends SequentialCommandGroup {
         StringBuilder sb = new StringBuilder();
         sb.append("Auto Selections");
         sb.append("\n   Auto Pattern  : ").append(autoPattern);
-        sb.append("\n   Alliance      : ").append(alliance);
+        sb.append("\n   Alliance      : ").append(alliance.orElseGet(() -> null));
 
         System.out.println(sb.toString());
 
@@ -44,12 +46,8 @@ public class AutonomousCommand extends SequentialCommandGroup {
         }
 
         // Print an error if the alliance is not set
-        if (alliance == null) {
+        if (!alliance.isPresent()) {
             System.out.println("*** ERROR **** null Alliance ");
-            return;
-        }
-        else if (alliance == Alliance.Invalid) {
-            System.out.println("*** ERROR *** Invalid alliance");
             return;
         }
 
@@ -62,7 +60,7 @@ public class AutonomousCommand extends SequentialCommandGroup {
             return;
 
         case DRIVE_FORWARD:
-            // What should we put here?
+            // TODO What should we put here?
             // Drive forward for 1 second
             // addCommands(new DriveForwardCommand(1, driveSubsystem));
         }
