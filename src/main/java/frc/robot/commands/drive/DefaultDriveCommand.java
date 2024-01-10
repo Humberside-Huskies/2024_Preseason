@@ -43,21 +43,26 @@ public class DefaultDriveCommand extends LoggingCommandBase {
 
         boolean   boost     = driverController.getRightBumper();
 
+        double    b         = 1.0;
+
+        if (boost)
+            b = 10.0f;
+
         switch (driveMode) {
 
         case DUAL_STICK_ARCADE:
-            setMotorSpeedsArcade(driverController.getLeftY(), driverController.getRightX(), boost);
+            setMotorSpeedsArcade(driverController.getLeftY() * 19, driverController.getRightX() * 19, boost);
             break;
 
         case SINGLE_STICK_ARCADE:
-            setMotorSpeedsArcade(driverController.getLeftY(), driverController.getLeftX(), boost);
+            setMotorSpeedsArcade(driverController.getLeftY() * b, driverController.getLeftX() * b, boost);
             break;
 
         case TANK:
         default:
 
             if (boost) {
-                driveSubsystem.setMotorSpeeds(driverController.getLeftY(), driverController.getRightY());
+                driveSubsystem.setMotorSpeeds(driverController.getLeftY() * b, driverController.getRightY() * b);
             }
             else {
                 // If not in boost mode, then divide the motors speeds in half

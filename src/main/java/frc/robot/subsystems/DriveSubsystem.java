@@ -1,6 +1,8 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
@@ -8,12 +10,12 @@ import frc.robot.Constants.DriveConstants;
 public class DriveSubsystem extends SubsystemBase {
 
     // The motors on the left side of the drive.
-    private final PWMSparkMax leftPrimaryMotor   = new PWMSparkMax(DriveConstants.LEFT_MOTOR_PORT);
-    private final PWMSparkMax leftFollowerMotor  = new PWMSparkMax(DriveConstants.LEFT_MOTOR_PORT + 1);
+    private final CANSparkMax leftPrimaryMotor   = new CANSparkMax(DriveConstants.LEFT_MOTOR_PORT, MotorType.kBrushed);
+    private final CANSparkMax leftFollowerMotor  = new CANSparkMax(DriveConstants.LEFT_MOTOR_PORT + 1, MotorType.kBrushed);
 
     // The motors on the right side of the drive.
-    private final PWMSparkMax rightPrimaryMotor  = new PWMSparkMax(DriveConstants.RIGHT_MOTOR_PORT);
-    private final PWMSparkMax rightFollowerMotor = new PWMSparkMax(DriveConstants.RIGHT_MOTOR_PORT + 1);
+    private final CANSparkMax rightPrimaryMotor  = new CANSparkMax(DriveConstants.RIGHT_MOTOR_PORT, MotorType.kBrushed);
+    private final CANSparkMax rightFollowerMotor = new CANSparkMax(DriveConstants.RIGHT_MOTOR_PORT + 1, MotorType.kBrushed);
 
     // Motor speeds
     private double            leftSpeed          = 0;
