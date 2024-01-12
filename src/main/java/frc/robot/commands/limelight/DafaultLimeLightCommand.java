@@ -1,26 +1,26 @@
-package frc.robot.commands.LED;
+package frc.robot.commands.limelight;
 
 import frc.robot.commands.LoggingCommandBase;
 import frc.robot.operator.GameController;
-import frc.robot.subsystems.LEDSubsystem;
+import frc.robot.subsystems.LimeLightSubsystem;
 
-public class DafaultLEDCommand extends LoggingCommandBase {
+public class DafaultLimeLightCommand extends LoggingCommandBase {
 
-    // private final LEDSubsystem ledSubsystem;
-    private final LEDSubsystem ledSubsystem;
+    // private final LEDSubsystem limeLightSubsystem;
+    private final LimeLightSubsystem limeLightSubsystem;
 
     /**
      * Creates a new ExampleCommand.
      *
-     * @param LEDSubsystem The subsystem used by this command.
+     * @param limeLightSubsystem The subsystem used by this command.
      */
-    public DafaultLEDCommand(GameController driverController,
-        LEDSubsystem ledSubsystem) {
+    public DafaultLimeLightCommand(GameController driverController,
+        LimeLightSubsystem limeLightSubsystem) {
 
-        this.ledSubsystem = ledSubsystem;
+        this.limeLightSubsystem = limeLightSubsystem;
 
         // Use addRequirements() here to declare subsystem dependencies.
-        addRequirements(ledSubsystem);
+        addRequirements(limeLightSubsystem);
     }
 
     // Called when the command is initially scheduled.

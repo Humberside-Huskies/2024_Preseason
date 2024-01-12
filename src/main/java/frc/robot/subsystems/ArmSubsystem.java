@@ -14,7 +14,7 @@ public class ArmSubsystem extends SubsystemBase {
 
     public double             armSpeed = 0;
 
-    /** Creates a new DriveSubsystem. */
+    /** Creates a new ArmSubsystem. */
     public ArmSubsystem() {
 
         // We need to invert one side of the drivetrain so that positive voltages
