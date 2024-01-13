@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class LimeLightSubsystem extends SubsystemBase {
 
     public LimeLightSubsystem() {
-        NetworkTable      table = NetworkTableInstance.getDefault().getTable("limelight");
-        NetworkTableEntry tx    = table.getEntry("tx");
-        NetworkTableEntry ty    = table.getEntry("ty");
-        NetworkTableEntry ta    = table.getEntry("ta");
+        NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+        NetworkTableEntry tx = table.getEntry("tx");
+        NetworkTableEntry ty = table.getEntry("ty");
+        NetworkTableEntry ta = table.getEntry("ta");
 
     }
 
@@ -28,8 +28,9 @@ public class LimeLightSubsystem extends SubsystemBase {
 
     @Override
     public String toString() {
-        // Create an appropriate text readable string describing the state of the subsystem
+        // Create an appropriate text readable string describing the state of the
+        // subsystem
 
-        return "Tony was here... Shhhhhh";
+        return "Tony was here... Shhhhhh, and Philip was too";
     }
 }
