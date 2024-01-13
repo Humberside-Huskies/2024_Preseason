@@ -30,6 +30,6 @@ public class LimeLightSubsystem extends SubsystemBase {
     public String toString() {
         // Create an appropriate text readable string describing the state of the subsystem
 
-        return "Wtf this the LimeLight Subsystem";
+        return "Tony was here... Shhhhhh";
     }
 }
