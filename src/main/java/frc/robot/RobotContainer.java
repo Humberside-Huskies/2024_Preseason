@@ -15,6 +15,7 @@ import frc.robot.commands.drive.DefaultDriveCommand;
 import frc.robot.operator.OperatorInput;
 import frc.robot.subsystems.ArmSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.VisionSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -31,6 +32,7 @@ public class RobotContainer {
     // The robot's subsystems and commands are defined here...
     private final DriveSubsystem               driveSubsystem     = new DriveSubsystem();
     private final ArmSubsystem                 armSubsystem       = new ArmSubsystem();
+    private final VisionSubsystem              visionSubsystem    = new VisionSubsystem();
 
     // All dashboard choosers are defined here...
     private final SendableChooser<DriveMode>   driveModeChooser   = new SendableChooser<>();
@@ -45,7 +47,7 @@ public class RobotContainer {
         driveSubsystem.setDefaultCommand(
             new DefaultDriveCommand(
                 operatorInput.driverController, driveModeChooser,
-                driveSubsystem));
+                driveSubsystem, visionSubsystem));
 
         armSubsystem.setDefaultCommand(
             new DefaultArmCommand(

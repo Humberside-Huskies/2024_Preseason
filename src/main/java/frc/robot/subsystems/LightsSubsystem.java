@@ -4,14 +4,14 @@ import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.LEDConstants;
 
-public class LEDSubsystem extends SubsystemBase {
+public class LightsSubsystem extends SubsystemBase {
 
     // The motors on the left side of the drive.
     private final PWMSparkMax LEDController = new PWMSparkMax(LEDConstants.LED_PWPORT);
     // private final AddressablLedBuffer ledBuffer;
 
     /** Creates a new LedSubsystem. */
-    public LEDSubsystem() {
+    public LightsSubsystem() {
         // ledBuffer.setData(ledBuffer);
     }
 
