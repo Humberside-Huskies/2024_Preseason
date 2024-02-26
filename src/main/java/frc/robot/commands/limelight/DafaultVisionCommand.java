@@ -1,10 +1,10 @@
 package frc.robot.commands.limelight;
 
-import frc.robot.commands.LoggingCommandBase;
+import frc.robot.commands.LoggingCommand;
 import frc.robot.operator.GameController;
 import frc.robot.subsystems.VisionSubsystem;
 
-public class DafaultVisionCommand extends LoggingCommandBase {
+public class DafaultVisionCommand extends LoggingCommand {
 
     // private final LEDSubsystem limeLightSubsystem;
     private final VisionSubsystem visionSubsystem;

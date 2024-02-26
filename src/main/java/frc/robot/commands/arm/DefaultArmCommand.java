@@ -1,11 +1,11 @@
 package frc.robot.commands.arm;
 
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.LoggingCommandBase;
+import frc.robot.commands.LoggingCommand;
 import frc.robot.operator.GameController;
 import frc.robot.subsystems.ArmSubsystem;
 
-public class DefaultArmCommand extends LoggingCommandBase {
+public class DefaultArmCommand extends LoggingCommand {
 
     private final ArmSubsystem   armSubsystem;
     private final XboxController driverController;

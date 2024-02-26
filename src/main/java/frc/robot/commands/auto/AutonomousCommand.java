@@ -28,7 +28,7 @@ public class AutonomousCommand extends SequentialCommandGroup {
 
         autoPattern = autoPatternChooser.getSelected();
 
-        alliance    = DriverStation.getAlliance();
+        alliance    = DriverStation.getAlliance().orElse(null);
 
         StringBuilder sb = new StringBuilder();
         sb.append("Auto Selections");
@@ -46,10 +46,6 @@ public class AutonomousCommand extends SequentialCommandGroup {
         // Print an error if the alliance is not set
         if (alliance == null) {
             System.out.println("*** ERROR **** null Alliance ");
-            return;
-        }
-        else if (alliance == Alliance.Invalid) {
-            System.out.println("*** ERROR *** Invalid alliance");
             return;
         }
 

@@ -1,10 +1,10 @@
 package frc.robot.commands.LED;
 
-import frc.robot.commands.LoggingCommandBase;
+import frc.robot.commands.LoggingCommand;
 import frc.robot.operator.GameController;
 import frc.robot.subsystems.LightsSubsystem;
 
-public class DafaultLEDCommand extends LoggingCommandBase {
+public class DafaultLEDCommand extends LoggingCommand {
 
     // private final LEDSubsystem ledSubsystem;
     private final LightsSubsystem lightsSubsystem;
